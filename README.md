@@ -18,7 +18,7 @@
 <br>
 
 <p align="center">
-  <img src="public/mail.png" width="100%" alt="E-mail de pesquisa">
+  <img src="public/mail1.1.png" width="100%" alt="E-mail de pesquisa">
 </p>
 
 ## ✨ Tecnologias
