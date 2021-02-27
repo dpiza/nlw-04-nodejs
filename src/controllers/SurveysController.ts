@@ -5,11 +5,12 @@ import { SurveysRepository } from "../repositories/SurveysRepository";
 
 class SurveysController {
     async create(request: Request, response: Response) {
-        const { title, description } = request.body;
+        const { name, title, description } = request.body;
 
         const surveysRepository = getCustomRepository(SurveysRepository);
 
         const survey = surveysRepository.create({
+            name,
             title,
             description
         });
@@ -19,7 +20,7 @@ class SurveysController {
         return response.status(201).json(survey);
     }
 
-    async show(request: Request, response: Response) {
+    async showAll(request: Request, response: Response) {
         const surveysRepository = getCustomRepository(SurveysRepository);
 
         const all = await surveysRepository.find();
@@ -27,15 +28,30 @@ class SurveysController {
         return response.json(all);
     }
 
-    async delete(request: Request, response: Response) {
-        const { id } = request.body;
+    async show(request: Request, response: Response) {
+        const { name } = request.body;
         const surveysRepository = getCustomRepository(SurveysRepository);
 
-        const survey = await surveysRepository.find({
-            id
+        const survey = await surveysRepository.findOne({
+            name
         });
 
-        if (survey.length == 0) {
+        if (!survey) {
+            throw new AppError("Survey does not exist!", 404);
+        }
+
+        return response.json(survey);
+    }
+
+    async delete(request: Request, response: Response) {
+        const { name } = request.body;
+        const surveysRepository = getCustomRepository(SurveysRepository);
+
+        const survey = await surveysRepository.findOne({
+            name
+        });
+
+        if (!survey) {
             throw new AppError("Survey does not exist!", 404);
         }
 

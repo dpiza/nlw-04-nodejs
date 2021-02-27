@@ -60,4 +60,9 @@ describe("User", () => {
             });
         expect(response.status).toBe(404);
     })
+
+    it("Should be able to delete a user via unsubscribe function", async () => {
+        const response = await request(app).get("/unsubscribe/user1@example.com");
+        expect(response.status).toBe(200);
+    });
 });

@@ -13,6 +13,10 @@ export class CreateSurveys1614175731217 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
+                        name: "name",
+                        type: "varchar"
+                    },
+                    {
                         name: "title",
                         type: "varchar"
                     },

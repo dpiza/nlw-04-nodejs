@@ -20,7 +20,10 @@ router.post("/users", userController.create);
 router.get("/users", userController.show);
 router.delete("/users", userController.delete);
 
+router.get("/unsubscribe/:value", userController.unsubscribe);
+
 router.post("/surveys", surveysController.create);
+router.get("/surveys/all", surveysController.showAll);
 router.get("/surveys", surveysController.show);
 router.delete("/surveys", surveysController.delete);
 

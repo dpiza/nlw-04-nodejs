@@ -48,15 +48,31 @@ class UserController {
     async delete(request: Request, response: Response) {
         const { email } = request.body;
         const usersRepository = getCustomRepository(UsersRepository);
-        const user = await usersRepository.find({
+        const user = await usersRepository.findOne({
             email
         });
 
-        if (user.length == 0) {
+        if (!user) {
             throw new AppError("User does not exist!", 404);
         }
 
-        const del = await usersRepository.remove(user);
+        await usersRepository.remove(user);
+        return response.json(user);
+    }
+
+    async unsubscribe(request: Request, response: Response) {
+        const { value } = request.params;
+
+        const usersRepository = getCustomRepository(UsersRepository);
+        const user = await usersRepository.findOne({
+            email: String(value)
+        });
+
+        if (!user) {
+            throw new AppError("User does not exist!", 404);
+        }
+
+        await usersRepository.remove(user);
         return response.json(user);
     }
 }

@@ -29,6 +29,7 @@ class SendMailController {
         }
 
         const variables = {
+            email: user.email,
             name: user.name,
             title: survey.title,
             description: survey.description,
