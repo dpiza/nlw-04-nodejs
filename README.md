@@ -38,7 +38,7 @@ O NPS-NLW é uma aplicação que consiste em calcular o NPS da empresa. Nele faz
 
 Esse projeto foi desenvolvido durante a trilha de NodeJS, na quarta edição da NLW. Aprendemos conceitos sobre o que é um API, como iniciar um projeto utilizando Typescript e Express para gerenciamento das rotas, TypeORM para manipulação dos dados, testes automatizados e envio de e-mail.
 
-## :checkered_flag: Extra Mile
+## 🏁 Extra Mile
 
 Partindo do projeto original, eu criei novas rotas para cobrir a criação, consulta e deleção dos usuários e pesquisas. Trabalhei o layout do e-mail enviado com a pesquisa e adicionei a função de unsubscribe, também enviada através do e-mail. Com as novas funcionalidades, também foram adicionados mais 8 testes.
 
